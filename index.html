@@ -43,6 +43,17 @@ body {
     color: white;
     animation: color-change 2s linear infinite, glow 1s ease-in-out infinite alternate;
 }
+
+#runner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+    z-index: 100;
+    transition: transform 2s linear;
+}
 @keyframes color-change {
     0% { color: red; }
     16% { color: orange; }
@@ -72,5 +83,18 @@ body {
     <img src="hdrparrot.gif" alt="Parrot">
   </div>
 </div>
+<img id="runner" src="original.gif" alt="Runner">
+<script>
+const runner = document.getElementById('runner');
+function moveRunner() {
+    const maxX = window.innerWidth - runner.clientWidth;
+    const maxY = window.innerHeight - runner.clientHeight;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+    runner.style.transform = `translate(${x}px, ${y}px)`;
+}
+setInterval(moveRunner, 2000);
+moveRunner();
+</script>
 </body>
 </html>
