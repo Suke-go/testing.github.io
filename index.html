@@ -93,14 +93,19 @@ body {
     position: fixed;
     pointer-events: none;
     font-size: 2rem;
-    color: white;
-    animation: fadeout 3s forwards;
+    color: #fff;
+    font-family: "Times New Roman", "Hiragino Mincho ProN", serif;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8),
+                 0 0 16px rgba(255,192,203,0.8);
+    animation: fadeinout 3s forwards ease-in-out;
     white-space: nowrap;
 }
 
-@keyframes fadeout {
-    from { opacity: 1; }
-    to { opacity: 0; }
+@keyframes fadeinout {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
 }
 </style>
 </head>
