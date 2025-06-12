@@ -47,6 +47,19 @@ body {
     background-clip: text;
     animation: rainbow-move 8s linear infinite, glow 2s ease-in-out infinite alternate;
 }
+/* Telop style for the BGM caption */
+.telop {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 1000;
+}
 
 #runner {
     position: fixed;
@@ -79,6 +92,8 @@ body {
 </style>
 </head>
 <body>
+<div class="telop">BGM消えたい夜に</div>
+<audio id="bgm" src="消えたい夜に.mp3" autoplay loop></audio>
 <div class="wrapper">
   <div class="parrots">
     <img src="hdrparrot.gif" alt="Parrot">
