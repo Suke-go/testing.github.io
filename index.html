@@ -40,21 +40,21 @@ body {
 .rainbow {
     font-size: 10vw;
     font-weight: bold;
-    color: white;
-    animation: color-change 2s linear infinite, glow 1s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 400% 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: rainbow-move 8s linear infinite, glow 2s ease-in-out infinite alternate;
 }
-@keyframes color-change {
-    0% { color: red; }
-    16% { color: orange; }
-    33% { color: yellow; }
-    50% { color: green; }
-    66% { color: blue; }
-    83% { color: indigo; }
-    100% { color: violet; }
+@keyframes rainbow-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 @keyframes glow {
-    from { text-shadow: 0 0 10px white, 0 0 20px red; }
-    to { text-shadow: 0 0 20px white, 0 0 30px blue; }
+    from { text-shadow: 0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,0,0,0.8); }
+    to { text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(0,0,255,1); }
 }
 </style>
 </head>
