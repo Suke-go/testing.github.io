@@ -16,6 +16,22 @@ body {
     background-size: 800% 800%;
     animation: bg-move 10s linear infinite;
 }
+.parrots {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.parrots img {
+    width: 80px;
+    height: 80px;
+    margin: 0 0.25rem;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 @keyframes bg-move {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -43,6 +59,18 @@ body {
 </style>
 </head>
 <body>
-<div class="rainbow">死にたいや</div>
+<div class="wrapper">
+  <div class="parrots">
+    <img src="hdrparrot.gif" alt="Parrot">
+    <img src="hdrparrot.gif" alt="Parrot">
+    <img src="hdrparrot.gif" alt="Parrot">
+  </div>
+  <div class="rainbow">死にたいや</div>
+  <div class="parrots">
+    <img src="hdrparrot.gif" alt="Parrot">
+    <img src="hdrparrot.gif" alt="Parrot">
+    <img src="hdrparrot.gif" alt="Parrot">
+  </div>
+</div>
 </body>
 </html>
