@@ -107,11 +107,25 @@ body {
     90% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-10px); }
 }
+.bgm-toggle {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+}
 </style>
 </head>
 <body>
 <div class="telop">BGM消えたい夜に</div>
 <audio id="bgm" src="消えたい夜に.mp3" autoplay loop></audio>
+<button id="toggle-bgm" class="bgm-toggle">BGM停止</button>
 <div class="wrapper">
   <div class="parrots">
     <img src="hdrparrot.gif" alt="Parrot">
@@ -159,6 +173,18 @@ function spawnWord() {
     setTimeout(() => span.remove(), 3000);
 }
 setInterval(spawnWord, 1500);
+
+const bgm = document.getElementById('bgm');
+const toggleBtn = document.getElementById('toggle-bgm');
+toggleBtn.addEventListener('click', () => {
+    if (bgm.paused) {
+        bgm.play();
+        toggleBtn.textContent = 'BGM停止';
+    } else {
+        bgm.pause();
+        toggleBtn.textContent = 'BGM再生';
+    }
+});
 </script>
 </body>
 </html>
