@@ -79,6 +79,7 @@ body {
     66% { color: blue; }
     83% { color: indigo; }
     100% { color: violet; }
+}
 @keyframes rainbow-move {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -87,6 +88,19 @@ body {
 @keyframes glow {
     from { text-shadow: 0 0 5px rgba(255,255,255,0.8), 0 0 10px rgba(255,0,0,0.8); }
     to { text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(0,0,255,1); }
+}
+.floating-word {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2rem;
+    color: white;
+    animation: fadeout 3s forwards;
+    white-space: nowrap;
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 </style>
 </head>
@@ -126,6 +140,20 @@ function moveRunner() {
 }
 setInterval(moveRunner, 2000);
 moveRunner();
+
+const words = ['消えたい', '死にたい', '疲れた', 'もうやめたい'];
+function spawnWord() {
+    const span = document.createElement('span');
+    span.className = 'floating-word';
+    span.textContent = words[Math.floor(Math.random() * words.length)];
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 30);
+    span.style.left = `${x}px`;
+    span.style.top = `${y}px`;
+    document.body.appendChild(span);
+    setTimeout(() => span.remove(), 3000);
+}
+setInterval(spawnWord, 1500);
 </script>
 </body>
 </html>
